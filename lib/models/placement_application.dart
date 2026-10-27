@@ -13,7 +13,8 @@ class PlacementApplication {
     required this.appliedOn,
   });
 
-  PlacementApplication copyWith({String? company, String? role, String? stage}) =>
+  PlacementApplication copyWith(
+          {String? company, String? role, String? stage}) =>
       PlacementApplication(
         id: id,
         company: company ?? this.company,
@@ -23,9 +24,12 @@ class PlacementApplication {
       );
 
   Map<String, dynamic> toJson() => {
-    'id': id, 'company': company, 'role': role,
-    'stage': stage, 'appliedOn': appliedOn.toIso8601String(),
-  };
+        'id': id,
+        'company': company,
+        'role': role,
+        'stage': stage,
+        'appliedOn': appliedOn.toIso8601String(),
+      };
 
   factory PlacementApplication.fromJson(Map<String, dynamic> json) =>
       PlacementApplication(

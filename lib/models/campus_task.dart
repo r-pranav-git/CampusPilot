@@ -13,7 +13,8 @@ class CampusTask {
     this.isDone = false,
   });
 
-  CampusTask copyWith({String? title, String? category, DateTime? dueDate, bool? isDone}) {
+  CampusTask copyWith(
+      {String? title, String? category, DateTime? dueDate, bool? isDone}) {
     return CampusTask(
       id: id,
       title: title ?? this.title,
@@ -24,15 +25,18 @@ class CampusTask {
   }
 
   Map<String, dynamic> toJson() => {
-    'id': id, 'title': title, 'category': category,
-    'dueDate': dueDate.toIso8601String(), 'isDone': isDone,
-  };
+        'id': id,
+        'title': title,
+        'category': category,
+        'dueDate': dueDate.toIso8601String(),
+        'isDone': isDone,
+      };
 
   factory CampusTask.fromJson(Map<String, dynamic> json) => CampusTask(
-    id: json['id'] as String,
-    title: json['title'] as String,
-    category: json['category'] as String,
-    dueDate: DateTime.parse(json['dueDate'] as String),
-    isDone: json['isDone'] as bool? ?? false,
-  );
+        id: json['id'] as String,
+        title: json['title'] as String,
+        category: json['category'] as String,
+        dueDate: DateTime.parse(json['dueDate'] as String),
+        isDone: json['isDone'] as bool? ?? false,
+      );
 }
